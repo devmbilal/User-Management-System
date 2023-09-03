@@ -20,7 +20,13 @@ app.set('view engine', 'ejs');
 
 //Home
 app.get('/', (req, res) => {
-    res.send('Hello World!');
+    
+    const locals = {
+        title: 'Node Js',
+        description: 'User Management System',
+    }
+
+    res.render('index', locals);
 });
 
 app.listen(port, () => {
