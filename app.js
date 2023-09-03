@@ -18,4 +18,11 @@ app.use(expressLayouts);
 app.set('layout', './layouts/main');
 app.set('view engine', 'ejs');
 
+//Home
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
 
+app.listen(port, () => {
+    console.log(`Server is running on port: ${port}`);
+});
