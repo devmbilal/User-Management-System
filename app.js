@@ -2,9 +2,12 @@ require('dotenv').config();
 
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
+const connectDB = require('./server/config/db');
 
 const app = express();
 const port = process.env.PORT || 5000;
+
+connectDB();
 
 //Middleware
 app.use(express.json());
