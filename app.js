@@ -18,19 +18,11 @@ app.use(expressLayouts);
 app.set('layout', './layouts/main');
 app.set('view engine', 'ejs');
 
-//Home
-app.get('/', (req, res) => {
-    
-    const locals = {
-        title: 'Node Js',
-        description: 'User Management System',
-    }
-
-    res.render('index', locals);
-});
+// Routes
+app.use('/', require('./server/routes/customer'));
 
 //Handlle 404
-app.get('*', (req, res) => {
+app.get('*', (req, res) => {  
     res.render('404');
 });
 
