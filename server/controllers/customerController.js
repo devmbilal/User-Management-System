@@ -1,4 +1,5 @@
-
+const Customer = require('../models/Customer');
+const mongoose = require('mongoose');
 
 exports.homepage = (req, res) => {
     const locals = {
@@ -19,13 +20,23 @@ exports.addCustomer = (req, res) => {
     res.render('customer/add',locals);
 }
 
-exports.postCustomer  = (req, res) => {
+exports.postCustomer  = async (req, res) => {
     console.log(req.body);
-    const locals = {
-        title: 'New Customer Added',
-        description: 'User Management System',
-    }
+  
+    const newCustomer = new Customer({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        tel: req.body.tel,
+        email: req.body.email,
+        details: req.body.details,
+    });
 
-    res.render('customer/add',locals);
+    try {
+        await Customer.create(newCustomer);
+        res.redirect('/');
+    } catch (err) {
+        console.log(err);
+    }
+    
 }
 
