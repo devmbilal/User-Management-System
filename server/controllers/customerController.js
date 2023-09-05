@@ -19,3 +19,13 @@ exports.addCustomer = (req, res) => {
     res.render('customer/add',locals);
 }
 
+exports.postCustomer  = (req, res) => {
+    console.log(req.body);
+    const locals = {
+        title: 'New Customer Added',
+        description: 'User Management System',
+    }
+
+    res.render('customer/add',locals);
+}
+
