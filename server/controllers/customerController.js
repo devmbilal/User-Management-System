@@ -2,12 +2,14 @@ const Customer = require('../models/Customer');
 const mongoose = require('mongoose');
 
 exports.homepage = (req, res) => {
+
+    const messages = req.flash('info');
     const locals = {
         title: 'Node Js',
         description: 'User Management System',
     }
 
-    res.render('index', locals);
+   res.render('index', { locals, messages} );
 }
 
 
@@ -33,6 +35,7 @@ exports.postCustomer  = async (req, res) => {
 
     try {
         await Customer.create(newCustomer);
+        req.flash("info", "New customer has been added.");
         res.redirect('/');
     } catch (err) {
         console.log(err);
