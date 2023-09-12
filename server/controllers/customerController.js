@@ -8,17 +8,30 @@ exports.homepage = async (req, res) => {
         title: 'Node Js',
         description: 'User Management System',
     }
+ 
+    let perPage = 12;
+    let page = req.query.page || 1;
 
-    try{
-        const customers = await Customer.find({}).limit(22);
-        res.render('index',{locals,messages,customers});
+    try {
+      const customers = await Customer.aggregate([ { $sort: { createdAt: -1 } } ])
+        .skip(perPage * page - perPage)
+        .limit(perPage)
+        .exec(); 
+      const count = await Customer.count();
 
-    } catch(err){
-        console.log(err);
-    }       
+      res.render('index', {
+        locals,
+        customers,
+        current: page,
+        pages: Math.ceil(count / perPage),
+        messages
+      });
 
-  
+    } catch (error) {
+      console.log(error);
+    }
 }
+
 
 
 exports.addCustomer = (req, res) => {
