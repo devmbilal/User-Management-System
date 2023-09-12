@@ -1,7 +1,7 @@
 const Customer = require('../models/Customer');
 const mongoose = require('mongoose');
 
-exports.homepage = (req, res) => {
+exports.homepage = async (req, res) => {
 
     const messages = req.flash('info');
     const locals = {
@@ -9,7 +9,15 @@ exports.homepage = (req, res) => {
         description: 'User Management System',
     }
 
-   res.render('index', { locals, messages} );
+    try{
+        const customers = await Customer.find({}).limit(22);
+        res.render('index',{locals,messages,customers});
+
+    } catch(err){
+        console.log(err);
+    }       
+
+  
 }
 
 
