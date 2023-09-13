@@ -7,6 +7,7 @@ router.get('/add', customerController.addCustomer);
 router.post('/add', customerController.postCustomer);
 
 router.get('/view/:id', customerController.view);
+router.get('/edit/:id', customerController.edit);
 
 
 module.exports = router;

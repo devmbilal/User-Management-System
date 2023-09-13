@@ -1,4 +1,4 @@
-const Customer = require('../models/Customer');
+ const Customer = require('../models/Customer');
 const mongoose = require('mongoose');
 
 exports.homepage = async (req, res) => {
@@ -107,3 +107,23 @@ exports.view = async (req, res) => {
 
 }
 
+exports.edit = async (req, res) => {
+
+  try {
+    const customer = await Customer.findOne({ _id: req.params.id })
+
+    const locals = {
+      title: "Edit Customer Data",
+      description: "Free NodeJs User Management System",
+    };
+
+    res.render('customer/edit', {
+      locals,
+      customer
+    })
+
+  } catch (error) {
+    console.log(error);
+  }
+
+}
