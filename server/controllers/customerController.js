@@ -127,3 +127,23 @@ exports.edit = async (req, res) => {
   }
 
 }
+
+exports.editPost = async (req, res) => {
+
+    try {
+    await Customer.findByIdAndUpdate(req.params.id,{
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      tel: req.body.tel,
+      email: req.body.email,
+      details: req.body.details,
+      updatedAt: Date.now()
+    });
+    await res.redirect(`/edit/${req.params.id}`);
+    
+    console.log('redirected');
+  } catch (error) {
+    console.log(error);
+  }
+
+}
