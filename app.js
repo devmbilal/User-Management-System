@@ -5,6 +5,7 @@ const expressLayouts = require('express-ejs-layouts');
 const connectDB = require('./server/config/db');
 const session = require('express-session')
 const flash=require('connect-flash')
+const methodOverride = require('method-override');
 
 
 const app = express();
@@ -15,6 +16,7 @@ connectDB();
 //Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
 
 //Express Session
 app.use(session({
