@@ -1,6 +1,29 @@
-# User-Management-System
-![dashboard](https://github.com/devmbilal/User-Management-System/assets/98284706/efb978f5-69ad-4467-a6c4-6c49178f52ea)
-![new cust](https://github.com/devmbilal/User-Management-System/assets/98284706/6ba11b53-c5d1-4dd2-8090-905711c054ee)
-![bilal](https://github.com/devmbilal/User-Management-System/assets/98284706/ff00b5ae-6d53-4d3a-9600-9fe53e006384)
-![update cust](https://github.com/devmbilal/User-Management-System/assets/98284706/2b5b0e37-5150-4be5-b939-dcb192d2e26c)
-![bilal d](https://github.com/devmbilal/User-Management-System/assets/98284706/8f45ff72-a076-42b6-89a9-db8204c0be07)
+# Nodejs User Management Express EJS MongoDB
+
+
+
+
+
+## You need:
+- Database (MongoDB) Free
+
+## Create .env file
+Create a .env file to store your credentials. Example below:
+
+```
+MONGODB_URI = mongodb+srv://<username>:<password>@mongodburlhere
+```
+
+## Installation
+To install and run this project - install dependencies using npm and then start your server:
+
+```
+$ npm install
+$ npm start
+```
+## Screenshots:
+![dashboard](https://github.com/devmbilal/User-Management-System/assets/98284706/66e74071-e677-43f7-8d61-506c74ad91bc)
+![bilal](https://github.com/devmbilal/User-Management-System/assets/98284706/90981acc-973b-4df5-916d-fcf2f9ee663a)
+![update cust](https://github.com/devmbilal/User-Management-System/assets/98284706/a5edae58-3114-41fc-bc0b-3670d9eaec49)
+![bilal d](https://github.com/devmbilal/User-Management-System/assets/98284706/da986bf5-4b29-46b6-a0c5-bb00a183d218)
+![new cust](https://github.com/devmbilal/User-Management-System/assets/98284706/7aa4c504-0a32-4cb4-97f0-b7d55107dbe2)
