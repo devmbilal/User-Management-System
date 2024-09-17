@@ -35,7 +35,7 @@ pipeline {
         stage('Build Applicaation') {
             steps {
                 script {
-                   buildJar()
+                 
                     echo 'building the applcation...'
                
                 }
